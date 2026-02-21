@@ -7,4 +7,4 @@ def ejecutar_entrada():
     if plate:
         dg.registrar_entrada_db(plate)
     else:
-        print("⚠️ Error: La placa no puede estar vacía.")
+        print("Error: La placa no puede estar vacía.")
