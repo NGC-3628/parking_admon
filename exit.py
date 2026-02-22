@@ -23,8 +23,8 @@ def ejecutar_salida():
             dg.registrar_salida_db(registro['id'])
             
         else:
-            print(f"ALTO. Han pasado {int(tiempo_transcurrido)} segundos y no ha pagado.")
-            print("Pase a pagar")
+            print(f"ALTO.\nPase a pagar")
+            #print("Pase a pagar")
             main.menu() 
             
     else:

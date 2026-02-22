@@ -27,16 +27,24 @@ def ejecutar_pago():
         a_pagar = calcular_pago(tiempo_transcurrido)
         dinero = int(input(f"Por favor ingrese ${a_pagar}: "))
 
+
         # validar que pago sea suficiente
         while dinero < a_pagar:
             print(f"por favor ingrese mas dinero. Faltan ${a_pagar - dinero} pesos")
+            dinero = int(input(f"Por favor ingrese ${a_pagar}: "))
+
 
         #cambio 
         if dinero > a_pagar:
             print(f"Su cambio es ${dinero - a_pagar}")
 
-        # registrar pago
-        dg.registrar_pago_db(registro['id'])
+        # registrar pago solo si se ha pagado el monto correcto
+        if dinero == a_pagar:
+            deuda_total = dinero
+
+            # registrar pago
+            if deuda_total == a_pagar:
+                dg.registrar_pago_db(registro['id'])
 
     else:
         print("Placa no encontrada. Intente nuevamente.")
